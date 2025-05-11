@@ -10,11 +10,18 @@ public:
     int stack[MAX];
     int top = -1;
 
+    bool isFull()
+    {
+        return top >= MAX - 1;
+    }
+
     bool push(int value)
     {
-        stack[++top] = value;
-        return true;
-
+        if (!isFull())
+        {
+            stack[++top] = value;
+            return true;
+        }
     }
 
     int pop ()
@@ -37,6 +44,7 @@ public:
     {
         return top == -1;
     }
+
 
     int Top()
     {
